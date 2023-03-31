@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #809dbb;
+}
+
+#l {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    width: 70px;
+    z-index: 3
+}
+
+#r {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 4400px;
+    z-index: 2
+}
