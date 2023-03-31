@@ -126,7 +126,7 @@ function map(value, min1, max1, min2, max2) {
 
 
 
-let topoffset = map(window.innerWidth, 3072, 550, 1, 60)
+// let topoffset = map(window.innerWidth, 3072, 550, 1, 60)
 document.getElementById("canvas-container").style.position = "absolute"
-document.getElementById("canvas-container").style.top = topoffset + "px"
+document.getElementById("canvas-container").style.top = 60 + "px"
 document.getElementById("canvas-container").style.zindex = "1"
