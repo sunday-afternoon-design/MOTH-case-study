@@ -13,7 +13,7 @@ let sketch = function(p) {
     let height;
 
     p.setup = function() {
-        height = p.windowWidth / 3072 * 1572
+        height = p.windowWidth / 432 * 243
         let canvas = p.createCanvas(p.windowWidth, height, p.WEBGL);
         canvas.parent("canvas-container");
         p.angleMode(p.DEGREES);
@@ -27,7 +27,7 @@ let sketch = function(p) {
     };
 
     p.windowResized = function() {
-        height = p.windowWidth / 3072 * 1572
+        height = p.windowWidth / 432 * 243
         p.resizeCanvas(p.windowWidth, height);
         cam1.ortho(-p.windowWidth / 2, p.windowWidth / 2, -height / 2, height / 2, 0.01, 5000);
     };
@@ -42,17 +42,18 @@ let sketch = function(p) {
     let speed = .1
     let mx = 0,
         my = 0;
-
+    let xdistance;
     p.draw = function() {
-        height = p.windowWidth / 3072 * 1572
+        height = p.windowWidth / 432 * 243
         size = p.windowWidth / 3072 * 15.5
-        console.log(p.windowWidth)
+            // console.log(p.windowWidth)
         p.clear();
 
         rotationchange += speed;
-        speed = p.abs(mx) + 0.5;
-        mx = -((((p.mouseX - 120) - p.windowWidth / 2) / 1000 / 36) * 100) / 1.3;
-        my = -((p.mouseY - 90) - height / 2) / 1200;
+        xdistance = (p.mouseX - p.windowWidth / 2) / p.windowWidth
+        speed = p.abs(xdistance) * 2.5 - 1.2;
+        mx = -((p.mouseX - 120) - p.windowWidth / 2) / p.windowWidth * 3;
+        my = -((p.mouseY - 90) - height / 2) / height / 2 * 4;
 
         // p.translate(0, 0, -h / 2);
         c0 = lerp(c0, -800 + mx * 300, 0.1);
@@ -128,5 +129,5 @@ function map(value, min1, max1, min2, max2) {
 
 // let topoffset = map(window.innerWidth, 3072, 550, 1, 60)
 document.getElementById("canvas-container").style.position = "absolute"
-document.getElementById("canvas-container").style.top = 60 + "px"
+    // document.getElementById("canvas-container").style.top = 25 + "vh"
 document.getElementById("canvas-container").style.zindex = "1"
